@@ -54,6 +54,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -62,6 +65,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -75,6 +79,42 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\opcao-de-salvar-arquivo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\sublinhado.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\novo-documento.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\justificado.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\texto-em-italico.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\fonte.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\colar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\copie-o-simbolo-de-interface-de-duas-folhas-de-papel.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\alinhar-a-esquerda.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\alinhar-a-direita.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\alinhar-ao-centro.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\botao-para-abrir-arquivo.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
