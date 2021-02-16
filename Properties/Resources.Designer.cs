@@ -143,6 +143,16 @@ namespace EditorDeTexto.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap negrito {
+            get {
+                object obj = ResourceManager.GetObject("negrito", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap novo_documento {
             get {
                 object obj = ResourceManager.GetObject("novo-documento", resourceCulture);

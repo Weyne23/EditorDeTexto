@@ -116,5 +116,8 @@
   <ItemGroup>
     <None Include="Resources\botao-para-abrir-arquivo.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\negrito.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
