@@ -44,7 +44,7 @@ namespace EditorDeTexto
             {
                 if (this.saveFileDialog1.ShowDialog() == DialogResult.OK)
                 {
-                    FileStream arquivo = new FileStream(saveFileDialog1.FileName, FileMode.Create, FileAccess.Write);//filestream cria um novo arquivo//primeiro paranmetro é o nome do arquivo
+                    FileStream arquivo = new FileStream(saveFileDialog1.FileName, FileMode.Create, FileAccess.Write);//filestream cria ou abre um arquivo//primeiro parametro é o nome do arquivo
                     //segundo parametro é o modo de abrir(OpenOrCreate quando o arquivo ja existe ele abre e faz a alteração se não existir ele cria um novo)
                     //Terceiro parametro é o de acesso, que no caso é de escrita
                     StreamWriter cfb_streamWriter = new StreamWriter(arquivo);//Serve para escrever o arquivo na maquina
@@ -58,6 +58,36 @@ namespace EditorDeTexto
             catch(Exception ex)
             {
                 MessageBox.Show("Erro na gravação: " + ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void abrir()
+        {
+            //this.openFileDialog1.Multiselect = false;//Para não poder selecionar mais de um arquivo
+            this.openFileDialog1.Title = "Abrir arquivo!";//titulo
+            this.openFileDialog1.InitialDirectory = @"C:\Users\augus\OneDrive\Documentos\C#\Editor de texto arquivos salvos";//Onde vai abrir inicialmente para pegar os arquivos
+            this.openFileDialog1.Filter = "(*.TXT)|*.TXT";//Aqui é pra edfinir os tipos de arquivos que ele vai abrir//Para todos os arquivos usa "(*.*)|*.*"
+            
+            if (this.openFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                try
+                {
+                    FileStream arquivo = new FileStream(openFileDialog1.FileName, FileMode.Open, FileAccess.ReadWrite);
+                    StreamReader cfb_streamReader = new StreamReader(arquivo);
+                    cfb_streamReader.BaseStream.Seek(0, SeekOrigin.Begin);
+                    this.rtb_texto.Clear();
+                    string linha = cfb_streamReader.ReadLine();
+                    while (linha != null)
+                    {
+                        rtb_texto.Text += linha + "\n";
+                        linha = cfb_streamReader.ReadLine();
+                    }
+                    cfb_streamReader.Close();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Erro de leitura: " + ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
         }
 
@@ -79,6 +109,16 @@ namespace EditorDeTexto
         private void btn_salvar_Click(object sender, EventArgs e)
         {
             salvar();
+        }
+
+        private void btn_abrir_Click(object sender, EventArgs e)
+        {
+            abrir();
+        }
+
+        private void abrirToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            abrir();
         }
     }
 }
