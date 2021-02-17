@@ -91,6 +91,43 @@ namespace EditorDeTexto
             }
         }
 
+        private void copiar()
+        {
+            if (rtb_texto.SelectionLength > 0)//Verifica o conteudo selecionado
+            {
+                rtb_texto.Copy();
+            }
+        }
+
+        private void cortar()
+        {
+            if (rtb_texto.SelectionLength > 0)//Verifica o conteudo selecionado
+            {
+                rtb_texto.Cut();
+            }
+        }
+
+        private void colar()
+        {
+            rtb_texto.Paste();
+        }
+
+        private void negrito()
+        {
+            string nome_da_fonte = null;
+            float tamanho_da_fonte = 0;
+            bool negri = false;
+
+            nome_da_fonte = rtb_texto.Font.Name;
+            tamanho_da_fonte = rtb_texto.Font.Size;
+            negri = rtb_texto.Font.Bold;
+
+            if (rtb_texto.SelectionFont.Bold)
+            {
+               ;
+            }
+        }
+
         private void btn_novo_Click(object sender, EventArgs e)
         {
             novo();
@@ -119,6 +156,36 @@ namespace EditorDeTexto
         private void abrirToolStripMenuItem_Click(object sender, EventArgs e)
         {
             abrir();
+        }
+
+        private void btn_copiar_Click(object sender, EventArgs e)
+        {
+            copiar();
+        }
+
+        private void editarToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            copiar();
+        }
+
+        private void btn_colar_Click(object sender, EventArgs e)
+        {
+            colar();
+        }
+
+        private void colarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            colar();
+        }
+
+        private void cortarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            cortar();
+        }
+
+        private void btn_cortar_Click(object sender, EventArgs e)
+        {
+            cortar();
         }
     }
 }
