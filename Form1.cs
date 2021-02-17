@@ -64,7 +64,7 @@ namespace EditorDeTexto
         private void abrir()
         {
             //this.openFileDialog1.Multiselect = false;//Para não poder selecionar mais de um arquivo
-            this.openFileDialog1.Title = "Abrir arquivo!";//titulo
+            this.openFileDialog1.Title = "Abrir arquivo";//titulo
             this.openFileDialog1.InitialDirectory = @"C:\Users\augus\OneDrive\Documentos\C#\Editor de texto arquivos salvos";//Onde vai abrir inicialmente para pegar os arquivos
             this.openFileDialog1.Filter = "(*.TXT)|*.TXT";//Aqui é pra edfinir os tipos de arquivos que ele vai abrir//Para todos os arquivos usa "(*.*)|*.*"
             
@@ -116,15 +116,146 @@ namespace EditorDeTexto
         {
             string nome_da_fonte = null;
             float tamanho_da_fonte = 0;
-            bool negri = false;
+            bool n, i, s = false;
 
             nome_da_fonte = rtb_texto.Font.Name;
             tamanho_da_fonte = rtb_texto.Font.Size;
-            negri = rtb_texto.Font.Bold;
+            n = rtb_texto.SelectionFont.Bold;
+            i = rtb_texto.SelectionFont.Italic;
+            s = rtb_texto.SelectionFont.Underline;
+            rtb_texto.SelectionFont = new Font(nome_da_fonte, tamanho_da_fonte, FontStyle.Regular);
 
-            if (rtb_texto.SelectionFont.Bold)
+            if (n == false)
             {
-               ;
+                if (i == true && s == true)
+                {
+                    rtb_texto.SelectionFont = new Font(nome_da_fonte, tamanho_da_fonte, FontStyle.Bold | FontStyle.Italic | FontStyle.Underline);
+                }
+                else if (i == false && s == true)
+                {
+                    rtb_texto.SelectionFont = new Font(nome_da_fonte, tamanho_da_fonte, FontStyle.Bold | FontStyle.Underline);
+                }
+                else if (i == true && s == false)
+                {
+                    rtb_texto.SelectionFont = new Font(nome_da_fonte, tamanho_da_fonte, FontStyle.Bold | FontStyle.Italic);
+                }
+                else if (i == false && s == false)
+                {
+                    rtb_texto.SelectionFont = new Font(nome_da_fonte, tamanho_da_fonte, FontStyle.Bold);
+                }
+            }
+            else
+            {
+                if (i == true && s == true)
+                {
+                    rtb_texto.SelectionFont = new Font(nome_da_fonte, tamanho_da_fonte, FontStyle.Italic | FontStyle.Underline);
+                }
+                else if (i == false && s == true)
+                {
+                    rtb_texto.SelectionFont = new Font(nome_da_fonte, tamanho_da_fonte, FontStyle.Underline);
+                }
+                else if (i == true && s == false)
+                {
+                    rtb_texto.SelectionFont = new Font(nome_da_fonte, tamanho_da_fonte, FontStyle.Italic);
+                }
+            }
+        }
+
+        private void italico()
+        {
+            string nome_da_fonte = null;
+            float tamanho_da_fonte = 0;
+            bool n, i, s = false;
+
+            nome_da_fonte = rtb_texto.Font.Name;
+            tamanho_da_fonte = rtb_texto.Font.Size;
+            n = rtb_texto.SelectionFont.Bold;
+            i = rtb_texto.SelectionFont.Italic;
+            s = rtb_texto.SelectionFont.Underline;
+            rtb_texto.SelectionFont = new Font(nome_da_fonte, tamanho_da_fonte, FontStyle.Regular);
+
+            if (i == false)
+            {
+                if (n == true && s == true)
+                {
+                    rtb_texto.SelectionFont = new Font(nome_da_fonte, tamanho_da_fonte, FontStyle.Bold | FontStyle.Italic | FontStyle.Underline);
+                }
+                else if (n == false && s == true)
+                {
+                    rtb_texto.SelectionFont = new Font(nome_da_fonte, tamanho_da_fonte, FontStyle.Italic | FontStyle.Underline);
+                }
+                else if (n == true && s == false)
+                {
+                    rtb_texto.SelectionFont = new Font(nome_da_fonte, tamanho_da_fonte, FontStyle.Bold | FontStyle.Italic);
+                }
+                else if (n == false && s == false)
+                {
+                    rtb_texto.SelectionFont = new Font(nome_da_fonte, tamanho_da_fonte, FontStyle.Italic);
+                }
+            }
+            else
+            {
+                if (n == true && s == true)
+                {
+                    rtb_texto.SelectionFont = new Font(nome_da_fonte, tamanho_da_fonte, FontStyle.Bold | FontStyle.Underline);
+                }
+                else if (n == false && s == true)
+                {
+                    rtb_texto.SelectionFont = new Font(nome_da_fonte, tamanho_da_fonte, FontStyle.Underline);
+                }
+                else if (n == true && s == false)
+                {
+                    rtb_texto.SelectionFont = new Font(nome_da_fonte, tamanho_da_fonte, FontStyle.Bold);
+                }
+            }
+        }
+
+        private void sublinhado()
+        {
+            string nome_da_fonte = null;
+            float tamanho_da_fonte = 0;
+            bool n, i, s = false;
+
+            nome_da_fonte = rtb_texto.Font.Name;
+            tamanho_da_fonte = rtb_texto.Font.Size;
+            n = rtb_texto.SelectionFont.Bold;
+            i = rtb_texto.SelectionFont.Italic;
+            s = rtb_texto.SelectionFont.Underline;
+            rtb_texto.SelectionFont = new Font(nome_da_fonte, tamanho_da_fonte, FontStyle.Regular);
+
+            if (s == false)
+            {
+                if (i == true && n == true)
+                {
+                    rtb_texto.SelectionFont = new Font(nome_da_fonte, tamanho_da_fonte, FontStyle.Bold | FontStyle.Italic | FontStyle.Underline);
+                }
+                else if (i == false && n == true)
+                {
+                    rtb_texto.SelectionFont = new Font(nome_da_fonte, tamanho_da_fonte, FontStyle.Bold | FontStyle.Underline);
+                }
+                else if (i == true && n == false)
+                {
+                    rtb_texto.SelectionFont = new Font(nome_da_fonte, tamanho_da_fonte, FontStyle.Underline | FontStyle.Italic);
+                }
+                else if (i == false && n == false)
+                {
+                    rtb_texto.SelectionFont = new Font(nome_da_fonte, tamanho_da_fonte, FontStyle.Underline);
+                }
+            }
+            else
+            {
+                if (i == true && n == true)
+                {
+                    rtb_texto.SelectionFont = new Font(nome_da_fonte, tamanho_da_fonte, FontStyle.Italic | FontStyle.Bold);
+                }
+                else if (i == false && n == true)
+                {
+                    rtb_texto.SelectionFont = new Font(nome_da_fonte, tamanho_da_fonte, FontStyle.Bold);
+                }
+                else if (i == true && n == false)
+                {
+                    rtb_texto.SelectionFont = new Font(nome_da_fonte, tamanho_da_fonte, FontStyle.Italic);
+                }
             }
         }
 
@@ -186,6 +317,36 @@ namespace EditorDeTexto
         private void btn_cortar_Click(object sender, EventArgs e)
         {
             cortar();
+        }
+
+        private void negritoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            negrito();
+        }
+
+        private void btn_negrito_Click(object sender, EventArgs e)
+        {
+            negrito();
+        }
+
+        private void itálicoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            italico();
+        }
+
+        private void btn_italico_Click(object sender, EventArgs e)
+        {
+            italico();
+        }
+
+        private void sublinhadoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            sublinhado();
+        }
+
+        private void btn_sublinhado_Click(object sender, EventArgs e)
+        {
+            sublinhado();
         }
     }
 }
