@@ -29,7 +29,7 @@ namespace EditorDeTexto
         /// </summary>
         private void InitializeComponent()
         {
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.rtb_texto = new System.Windows.Forms.RichTextBox();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.arquivoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.novoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -69,17 +69,22 @@ namespace EditorDeTexto
             this.btn_direita = new System.Windows.Forms.ToolStripButton();
             this.btn_centro = new System.Windows.Forms.ToolStripButton();
             this.btn_justificado = new System.Windows.Forms.ToolStripButton();
+            this.fontDialog1 = new System.Windows.Forms.FontDialog();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
+            this.printDialog1 = new System.Windows.Forms.PrintDialog();
+            this.printDocument1 = new System.Drawing.Printing.PrintDocument();
             this.menuStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // richTextBox1
+            // rtb_texto
             // 
-            this.richTextBox1.Location = new System.Drawing.Point(0, 52);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(800, 400);
-            this.richTextBox1.TabIndex = 0;
-            this.richTextBox1.Text = "";
+            this.rtb_texto.Location = new System.Drawing.Point(0, 52);
+            this.rtb_texto.Name = "rtb_texto";
+            this.rtb_texto.Size = new System.Drawing.Size(800, 400);
+            this.rtb_texto.TabIndex = 0;
+            this.rtb_texto.Text = "";
             // 
             // menuStrip1
             // 
@@ -109,8 +114,9 @@ namespace EditorDeTexto
             // novoToolStripMenuItem
             // 
             this.novoToolStripMenuItem.Name = "novoToolStripMenuItem";
-            this.novoToolStripMenuItem.Size = new System.Drawing.Size(120, 22);
+            this.novoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.novoToolStripMenuItem.Text = "Novo";
+            this.novoToolStripMenuItem.Click += new System.EventHandler(this.novoToolStripMenuItem_Click);
             // 
             // abrirToolStripMenuItem
             // 
@@ -121,8 +127,9 @@ namespace EditorDeTexto
             // salvarToolStripMenuItem
             // 
             this.salvarToolStripMenuItem.Name = "salvarToolStripMenuItem";
-            this.salvarToolStripMenuItem.Size = new System.Drawing.Size(120, 22);
+            this.salvarToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.salvarToolStripMenuItem.Text = "Salvar";
+            this.salvarToolStripMenuItem.Click += new System.EventHandler(this.salvarToolStripMenuItem_Click);
             // 
             // imprimirToolStripMenuItem
             // 
@@ -283,6 +290,7 @@ namespace EditorDeTexto
             this.btn_novo.Name = "btn_novo";
             this.btn_novo.Size = new System.Drawing.Size(23, 22);
             this.btn_novo.Text = "Novo";
+            this.btn_novo.Click += new System.EventHandler(this.btn_novo_Click);
             // 
             // btn_abrir
             // 
@@ -301,6 +309,7 @@ namespace EditorDeTexto
             this.btn_salvar.Name = "btn_salvar";
             this.btn_salvar.Size = new System.Drawing.Size(23, 22);
             this.btn_salvar.Text = "Salvar";
+            this.btn_salvar.Click += new System.EventHandler(this.btn_salvar_Click);
             // 
             // btn_copiar
             // 
@@ -397,13 +406,26 @@ namespace EditorDeTexto
             this.btn_justificado.Size = new System.Drawing.Size(23, 22);
             this.btn_justificado.Text = "Justificado";
             // 
+            // openFileDialog1
+            // 
+            this.openFileDialog1.FileName = "openFileDialog1";
+            // 
+            // saveFileDialog1
+            // 
+            this.saveFileDialog1.DefaultExt = "txt";
+            this.saveFileDialog1.FileName = "NovoArquivo";
+            // 
+            // printDialog1
+            // 
+            this.printDialog1.UseEXDialog = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 452);
             this.Controls.Add(this.toolStrip1);
-            this.Controls.Add(this.richTextBox1);
+            this.Controls.Add(this.rtb_texto);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.MaximizeBox = false;
@@ -422,7 +444,7 @@ namespace EditorDeTexto
 
         #endregion
 
-        private System.Windows.Forms.RichTextBox richTextBox1;
+        private System.Windows.Forms.RichTextBox rtb_texto;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem arquivoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem novoToolStripMenuItem;
@@ -462,6 +484,11 @@ namespace EditorDeTexto
         private System.Windows.Forms.ToolStripButton btn_direita;
         private System.Windows.Forms.ToolStripButton btn_centro;
         private System.Windows.Forms.ToolStripButton btn_justificado;
+        private System.Windows.Forms.FontDialog fontDialog1;
+        private System.Windows.Forms.OpenFileDialog openFileDialog1;
+        private System.Windows.Forms.SaveFileDialog saveFileDialog1;
+        private System.Windows.Forms.PrintDialog printDialog1;
+        private System.Drawing.Printing.PrintDocument printDocument1;
     }
 }
 
