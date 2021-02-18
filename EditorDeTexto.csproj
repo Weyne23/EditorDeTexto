@@ -122,5 +122,8 @@
   <ItemGroup>
     <None Include="Resources\scissors.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\variante-de-impressora-com-impressao-em-papel.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

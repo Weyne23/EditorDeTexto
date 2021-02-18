@@ -199,5 +199,15 @@ namespace EditorDeTexto.Properties {
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap variante_de_impressora_com_impressao_em_papel {
+            get {
+                object obj = ResourceManager.GetObject("variante-de-impressora-com-impressao-em-papel", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
     }
 }
