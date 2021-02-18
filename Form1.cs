@@ -21,7 +21,7 @@ namespace EditorDeTexto
 
         private void novo()
         {
-            if (MessageBox.Show("Desejá salvar o arquivo?", "Mensagem", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            if (MessageBox.Show("Deseja salvar o arquivo?", "Mensagem", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
                 salvar();
                 limpar();
